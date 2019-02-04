@@ -1,19 +1,19 @@
 package basicOptimizer;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Airport {
-    String originationAirportName;
-    ArrayList <Flight> neighboringFlights;
-    double costSoFar;
-    Airport previous;
-    boolean visited;
+	String airportName;
+	HashMap<String, Flight> neighboringFlights;
+	double costSoFar;
+	Airport previous;
+	boolean visited;
 
-    public Airport(String airportName) {
-      originationAirportName = airportName;
-      neighboringFlights = new ArrayList<>();
-      visited = false;
-      costSoFar=Integer.MAX_VALUE;
-      previous = null;
-    }
-  }
+	public Airport(String name) {
+		airportName = name;
+		neighboringFlights = new HashMap<>();
+		visited = false;
+		costSoFar=Integer.MAX_VALUE;
+		previous = null;
+	}
+}

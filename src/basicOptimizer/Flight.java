@@ -2,22 +2,31 @@ package basicOptimizer;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Flight {
-    ArrayList<String> carriers = new ArrayList<>();
-    Airport destinationAirport;
-    double delay;
-    double cancellationProbability;
-    double time;
-    double distance;
-    double cost;
-    public Flight(Airport destinationIn, ArrayList<String> carriers, double delay, double cancellation, double time, double distance, double cost) throws FileNotFoundException {
-      destinationAirport = destinationIn;
-      this.carriers.addAll(carriers);
-      this.delay = delay;
-      this.cancellationProbability = cancellation;
-      this.time = time;
-      this.distance = distance;
-      this.cost = cost;
-    }
-  }
+	HashSet<String> carriers = new HashSet<>();
+	Airport destinationAirport;
+	ArrayList<Double> delayData = new ArrayList<>();
+	ArrayList<Double> cancellationData = new ArrayList<>();
+	ArrayList<Double> timeData = new ArrayList<>();
+	ArrayList<Double> distanceData = new ArrayList<>();
+	ArrayList<Double> costData = new ArrayList<>();
+	double delay;
+	double cancellationProbability;
+	double time;
+	double distance;
+	double cost;
+
+	public Flight(Airport destination) throws FileNotFoundException {
+		destinationAirport = destination;
+	}
+
+	public double updateAverage(ArrayList<Double> dataSet) {
+		double sum = 0;
+		for(Double data : dataSet) {
+			sum += data;
+		}
+		return sum / dataSet.size();
+	}
+}
